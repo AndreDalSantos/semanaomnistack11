@@ -1,0 +1,49 @@
+// deve-se instalar o express na mesma pasta
+// (comando no terminal do vs code mesmo: npm install express)
+const express = require("express")
+const cors = require('cors')
+const routes = require('./routes')
+
+const app = express();
+
+app.use(cors())
+app.use(express.json());
+app.use(routes);
+
+
+// Métodos Http:
+
+// GET: Buscar/listar uma informação do back-encode
+// POST: criar uma informação no back-end
+// PUT: alterar uma informação no back-end
+// DELETE: Deletar uma informação no back-end
+
+/*
+tipos de parâmetros:
+Query Params: Parâmetros nomeados enviados na rota após '?' (filtros, paginação)
+Route Params: parâmetros utilizados para identificar recursos
+Request Body: Corpo da requisição utilizado para criar ou alterar recursos
+
+OBS: para instalar nodemon: {npm install nodemon -D} o '-D' significa que vai usar somente
+durante o desenvolvimento da aplicação (não irá para produção) e no arquivo package.JSON no item 
+scripts colocar nodemon + nome-do-arquivo:
+"scripts": {
+    "start": "nodemon index.js"
+  }
+
+*/
+
+/**
+ * Banco de dados:
+ * SQL: MySQL, SQLite, PostgresSQL, Oracle, Microsoft SQL Server...
+ * NoSQL: MongoDB, CouchDB,...
+ */
+
+ /**
+  * Driver: SELECT * FROM users
+  * Query Builder: table('users').select('*').where()
+  */
+
+
+
+app.listen(3333);
