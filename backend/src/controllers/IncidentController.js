@@ -5,7 +5,7 @@ module.exports = {
     async index(request, response){
         const {page = 1} = request.query
 
-        const [count] = await connection('incidents').count()
+        const [count] = await connection('incidents').count()       //os [] retornam a primeira posição do array
 
         const incidents = await connection('incidents')
             .join('ongs', 'ongs.id', '=', 'incidents.ong_id')

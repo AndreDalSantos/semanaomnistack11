@@ -6,15 +6,15 @@ const SessionController = require('./controllers/SessionController')
 
 const routes = express.Router()
 
-routes.post('/sessions', SessionController.create)
+routes.post('/sessions', SessionController.create)              //Login
 
-routes.get('/ongs', OngController.index)
-routes.post('/ongs', OngController.create)
+routes.get('/ongs', OngController.index)                        //Lista Ong's
+routes.post('/ongs', OngController.create)                      //Cria Ong's
 
-routes.get('/profile', ProfileController.index)
+routes.get('/profile', ProfileController.index)                 //Lista casos de uma ONG específica
 
-routes.get('/incidents', IncidentController.index)
-routes.post('/incidents', IncidentController.create)
-routes.delete('/incidents/:id', IncidentController.delete)
+routes.get('/incidents', IncidentController.index)              //Lista todos os casos
+routes.post('/incidents', IncidentController.create)            //Cria um caso para uma ong
+routes.delete('/incidents/:id', IncidentController.delete)      //deleta um caso
 
 module.exports = routes

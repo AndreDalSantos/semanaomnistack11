@@ -12,7 +12,8 @@ module.exports = {
     async create(request, response) {
         const { name, email, whatsapp, city, uf } = request.body
 
-        const id = crypto.randomBytes(4).toString('HEX')
+        //gera 4 bytes de caracteres aleatorios em hexadecimal
+        const id = crypto.randomBytes(4).toString('HEX')        
 
         await connection('ongs').insert({
             id,
