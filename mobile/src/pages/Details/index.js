@@ -14,16 +14,17 @@ export default function Details() {
 
     const incident = route.params.incident;
     const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso de ${incident.title} com o valor de ${Intl.NumberFormat('pt-BR',{style: 'currency', currency: 'BRL' }).format(incident.value)}` 
-
+    const message2 = 'teste...teste...teste';
     function navigateBack(){
         navigation.goBack()
     }
 
+
     function sendMail(){
         MailComposer.composeAsync({
-           subject: `Herói do caso:  ${incident.title}`,
-           recipients: [incident.email],
-           body: message,
+            subject: `Herói do caso:  ${incident.title}`,
+            recipients: [incident.email],
+            body: message2,
         })
     }
 
@@ -63,11 +64,11 @@ export default function Details() {
                 <Text style={styles.heroDescription}>entre em contato:</Text>
 
                 <View style={styles.actions}>
-                    <TouchableOpacity style={styles.action} on Press={sendWhatsApp}>
+                    <TouchableOpacity style={styles.action} onPress={sendWhatsApp}>
                         <Text style={styles.actionText}>WhatsApp</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.action} on Press={sendMail}>
+                    <TouchableOpacity style={styles.action} onPress={sendMail}>
                         <Text style={styles.actionText}>E-mail</Text>
                     </TouchableOpacity>
                 </View>
